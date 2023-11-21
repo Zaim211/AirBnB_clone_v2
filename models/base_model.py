@@ -13,11 +13,6 @@ Base = declarative_base()
 
 class BaseModel:
     """Defines the BaseModel class.
-
-    Attributes:
-        id (sqlalchemy String): The BaseModel id.
-        created_at (sqlalchemy DateTime): The datetime at creation.
-        updated_at (sqlalchemy DateTime): The datetime of last update.
     """
 
     id = Column(String(60), primary_key=True, nullable=False)
@@ -26,10 +21,6 @@ class BaseModel:
 
     def __init__(self, *args, **kwargs):
         """Initialize a new BaseModel.
-
-        Args:
-            *args (any): Unused.
-            **kwargs (dict): Key/value pairs of attributes.
         """
         self.id = str(uuid4())
         self.created_at = self.updated_at = datetime.utcnow()
